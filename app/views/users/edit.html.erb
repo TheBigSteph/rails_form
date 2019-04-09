@@ -1,0 +1,40 @@
+<div class="col-md-6 col-md-offset-3">
+<% if false %>
+    <form action="/users" method="POST" accept-charset="UTF-8">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <label>Username</label>
+        <input type="text" name="user[username]">
+        <label>Email</label>
+        <input type="email" name="user[email]">
+        <label>Password</label>
+        <input type="password" name="user[password]">
+        <input type="submit" value="Submit">
+    </form>
+<% end %>
+
+<% if false %>
+    <%= form_tag('/users') do %>
+        <%= label_tag('Username') %>
+        <%= text_field_tag('username') %>
+        <%= label_tag('Email') %>
+        <%= email_field_tag('email') %>
+        <%= label_tag('Password') %>
+        <%= password_field_tag('password') %>
+        <%= submit_tag 'Save' %>
+    <% end %>
+<% end %>
+
+<h2>Editing Form</h2>
+<%= form_for @user, url: {action: "update"} do |f| %>
+    <div class="form-group">
+    <%= f.text_field :username, placeholder: "Enter your Username", class: "form-control" %>
+    </div>
+    <div class="form-group">
+    <%= f.text_field :email, placeholder: "Enter your Email", class: "form-control" %>
+    </div>
+    <div class="form-group">
+    <%= f.password_field :password, placeholder: "Your password", class: "form-control" %>
+    </div>
+    <%= f.submit "Update", class: "btn btn-primary" %>
+<% end %>
+</div>
